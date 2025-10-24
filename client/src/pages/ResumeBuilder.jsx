@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { ArrowLeftIcon, Briefcase, ChevronLeft, ChevronRight, FileText, FolderIcon, GraduationCap, Sparkles, UserIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PersonalInfoForm from '../components/PersonalInfoForm.jsx';
+import ResumePreview from '../components/ResumePreview.jsx';
 const ResumeBuilder = () => {
 
   const {resumeId} = useParams();
@@ -112,7 +113,7 @@ const ResumeBuilder = () => {
                 {/* -- buttons -- */}
               </div> 
 
-              {/* -- resume preview -- */}
+              <ResumePreview data={resumeData} template={resumeData.template} accentColor={resumeData.accent_color} />
 
             </div>
 

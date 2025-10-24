@@ -13,9 +13,10 @@ const PersonalInfoForm = ({data, onChange, removeBackground, setRemoveBackground
         {key: "email", label: "Email Address", icon: Mail, type : "email", required:true},
         {key: "phone", label: "Phone Number", icon: Phone, type : "tel"},
         {key: "location", label: "Location", icon: MapPin, type : "text"},
+        {key: "profession", label: "Profession", icon: BriefcaseBusiness, type : "text"},
         {key: "linkedin", label: "LinkedIn Profile", icon: Linkedin, type : "url"},
         {key: "website", label: "Personal Website", icon: Globe, type : "url"},  
-        {key: "profession", label: "Profession", icon: BriefcaseBusiness, type : "text"}
+        
     ]
   return (
     <div>

@@ -48,8 +48,8 @@ const ResumeBuilder = () => {
   const activeSection = sections[activeSectionIndex]
 
   useEffect(() => {
-    loadExistingResume() ;
-  },[])
+    loadExistingResume(resumeId);
+  }, [resumeId])
 
 
   return (
@@ -106,7 +106,13 @@ const ResumeBuilder = () => {
 
 
             {/* Right Panel */}
-            <div>
+            <div className='lg:col-span-7 max-lg:mt-6'>
+
+              <div>
+                {/* -- buttons -- */}
+              </div> 
+
+              {/* -- resume preview -- */}
 
             </div>
 

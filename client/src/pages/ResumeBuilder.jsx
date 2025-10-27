@@ -25,7 +25,7 @@ const ResumeBuilder = () => {
     professional_summary: "",
     experience: [],
     education: [],
-    projects: [],
+    project: [],
     skills: [],
     template: "classic",
     accent_color: "#3B82F6",
@@ -49,7 +49,7 @@ const ResumeBuilder = () => {
     { id: 'summary', name: 'Professional Summary' , icon : FileText},
     { id: 'experience', name: 'Experience' , icon : Briefcase},
     { id: 'education', name: 'Education' , icon : GraduationCap},
-    { id: 'project', name: 'Project' , icon : FolderIcon},
+    { id: 'projects', name: 'Project' , icon : FolderIcon},
     { id: 'skills', name: 'Skills' , icon : Sparkles},
   ]
 
@@ -138,10 +138,10 @@ const ResumeBuilder = () => {
                   {/* EducationForm to be added here */}
                   {activeSection.id === 'education' && (
                     <EducationForm data={resumeData.education} onChange={(data) => setResumeData(prev => ({...prev, education: data}))} />
-                  )}
+                  )} 
                   {/* ProjectsForm to be added here */}
-                  {activeSection.id === 'project' && (
-                    <ProjectForm data={resumeData.projects} onChange={(data) => setResumeData(prev => ({...prev, projects: data}))} />
+                  {activeSection.id === 'projects' && (
+                    <ProjectForm data={resumeData.project} onChange={(data) => setResumeData(prev => ({...prev, project: data}))} />
                   )}
                   {/* SkillsForm to be added here */}
                   {activeSection.id === 'skills' && (

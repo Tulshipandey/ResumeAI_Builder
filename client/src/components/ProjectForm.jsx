@@ -1,4 +1,4 @@
-import { GraduationCap, Plus, Trash2 } from 'lucide-react';
+import {  FolderCode, Plus, Trash2 } from 'lucide-react';
 import React from 'react'
 
 const ProjectForm = ({data, onChange}) => {
@@ -22,7 +22,7 @@ const ProjectForm = ({data, onChange}) => {
         onChange(updated);
     }
   return (
-    <div className='space-y-6'>
+    <div className=' space-y-6'>
         <div className='flex items-center justify-between'>
             <div>
                 <h3 className='flex items-center gap-2 text-lg font-semibold text-gray-900'>Projects</h3>
@@ -37,13 +37,13 @@ const ProjectForm = ({data, onChange}) => {
 
         {data.length === 0 ? (
             <div className='text-center py-8 text-gray-500'>
-                <GraduationCap className='w-12 h-12 mx-auto mb-3 text-gray-300' />
-                <p>No projects added yet.</p>
-                <p className='text-sm'>Click "Add Project" to get started.</p>
+                <FolderCode className='w-12 h-12 mx-auto mb-3 text-gray-300' />
+                <p>No work experience added yet.</p>
+                <p className='text-sm'>Click "Add Experience" to get started.</p>
             </div>
         ):(
             <div className='space-y-4 mt-6'>
-                {data.map((projects, index) => (
+                {data.map((project, index) => (
                     <div key={index} className='p-4 border border-gray-200 rounded-lg space-y-3'>
                         <div className='flex justify-between items-start'>
                             <h4>Project #{index+1}</h4>
@@ -53,13 +53,13 @@ const ProjectForm = ({data, onChange}) => {
                         </div>
 
                         <div className='grid  gap-3'>
-                            <input type="text" placeholder='Project Name' value={projects.name || ""} onChange={(e) =>
+                            <input type="text" placeholder='Project Name' value={project.name || ""} onChange={(e) =>
                                 updateProject(index, "name", e.target.value)} className='px-3 py-2 text-sm rounded-lg' />
 
-                             <input type="text" placeholder='Project Type' value={projects.type || ""} onChange={(e) =>
+                             <input type="text" placeholder='Project Type' value={project.type || ""} onChange={(e) =>
                                 updateProject(index, "type", e.target.value)} className='px-3 py-2 text-sm rounded-lg' />
 
-                            <textarea rows={4} placeholder='Describe your project..' value={projects.description || ""} onChange={(e) =>
+                            <textarea rows={4} placeholder='Describe your project..' value={project.description || ""} onChange={(e) =>
                                 updateProject(index, "description", e.target.value)} className='w-full px-3 py-2 text-sm rounded-lg resize-none' />
 
                             
@@ -72,7 +72,6 @@ const ProjectForm = ({data, onChange}) => {
                 ))}
             </div>
         )}
-        
     </div>
   )
 }

@@ -65,7 +65,7 @@ const EducationForm = ({data, onChange}) => {
 
                                 <input type="text" placeholder='Field of Study' value={education.field_of_study || ""} onChange={(e) =>
                                 updateEducation(index, "field_of_study", e.target.value)} className='px-3 py-2 text-sm ' />
-
+                                
                                 <input type="month" placeholder='Graduation Date' value={education.graduation_date || ""} onChange={(e) =>
                                 updateEducation(index, "graduation_date", e.target.value)} className='px-3 py-2 text-sm ' />
 

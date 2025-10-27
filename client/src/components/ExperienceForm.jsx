@@ -63,7 +63,7 @@ const ExperienceForm = ({data, onChange}) => {
 
                                 <input type="text" placeholder='Job Title' value={experience.position || ""} onChange={(e) =>
                                 updateExperience(index, "position", e.target.value)} className='px-3 py-2 text-sm rounded-lg' />
-
+                                
                                 <input type="month" placeholder='Start Date' value={experience.start_date || ""} onChange={(e) =>
                                 updateExperience(index, "start_date", e.target.value)} className='px-3 py-2 text-sm rounded-lg' />
 

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Check, Layout } from "lucide-react";
 
-const TemplateSelector = ({ selectedTemplate, onChange }) => {
+const TemplateSelector = ({ selectedTemplate , onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
 

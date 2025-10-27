@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Globe } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Globe, Briefcase } from "lucide-react";
 
 const ClassicTemplate = ({ data, accentColor }) => {
     const formatDate = (dateStr) => {
@@ -35,6 +35,12 @@ const ClassicTemplate = ({ data, accentColor }) => {
                         <div className="flex items-center gap-1">
                             <MapPin className="size-4" />
                             <span>{data.personal_info.location}</span>
+                        </div>
+                    )}
+                    {data.personal_info?.profession && (
+                        <div className="flex items-center gap-1">
+                            <Briefcase className="size-4" />
+                            <span>{data.personal_info.profession}</span>
                         </div>
                     )}
                     {data.personal_info?.linkedin && (
@@ -125,7 +131,7 @@ const ClassicTemplate = ({ data, accentColor }) => {
                             <div key={index} className="flex justify-between items-start">
                                 <div>
                                     <h3 className="font-semibold text-gray-900">
-                                        {edu.degree} {edu.field && `in ${edu.field}`}
+                                        {edu.degree} {edu.field_of_study && `in ${edu.field_of_study}`}
                                     </h3>
                                     <p className="text-gray-700">{edu.institution}</p>
                                     {edu.gpa && <p className="text-sm text-gray-600">GPA: {edu.gpa}</p>}

@@ -7,6 +7,13 @@ import { ArrowLeftIcon, Briefcase, ChevronLeft, ChevronRight, FileText, FolderIc
 import { Link } from 'react-router-dom';
 import PersonalInfoForm from '../components/PersonalInfoForm.jsx';
 import ResumePreview from '../components/ResumePreview.jsx';
+import TemplateSlector from '../components/TemplateSlector.jsx';
+import ColorPicker from '../components/ColorPicker.jsx';
+import ProfessionalSummaryForm from '../components/ProfessionalSummaryForm.jsx';
+import ExperienceForm from '../components/ExperienceForm.jsx';
+import EducationForm from '../components/EducationForm.jsx';
+import ProjectForm from '../components/ProjectForm.jsx';
+import SkillForm from '../components/SkillForm.jsx';
 const ResumeBuilder = () => {
 
   const {resumeId} = useParams();
@@ -69,13 +76,14 @@ const ResumeBuilder = () => {
 
                 {/* progress bar using activeSectionIndex*/}
                 <hr className='absolute top-0 left-0 right-0 border-2  border-gray-200' />
-                <hr className='absolute top-0 left-0 h-1 bg-gradient-to-r from-green-500 to-green-600 border-none transition-all duration-2000' style={{width: `${activeSectionIndex * (100 / sections.length -1)}%`}} />
+                <hr className='absolute top-0 left-0 h-1 bg-gradient-to-r from-green-500 to-green-600 border-none transition-all duration-2000' style={{width: `${activeSectionIndex * 100 / (sections.length - 1)}%`}} />
 
                 {/* { Section Navigation\} */}
 
-                <div className='flex justify-between items-center mb-6 border-b border-gray-300 py-1'>
-                  <div>
-
+                <div className='flex justify-between -center mb-6 border-b border-gray-300 py-1'>
+                  <div className='flex items-center gap-2'>
+                    <TemplateSlector  selectedTemplate={resumeData.template} onChange={(template) => setResumeData((prev) => ({ ...prev, template }))} />
+                    <ColorPicker selectedColor = {resumeData.accent_color} onChange={(color) => setResumeData((prev) => ({ ...prev, accent_color: color }))} />
                   </div>
                   <div className='flex items-center'>
                     {activeSectionIndex !== 0 && (
@@ -96,10 +104,36 @@ const ResumeBuilder = () => {
                 {/* Form Content */}
                 <div className='space-y-6'>
                   {activeSection.id === 'personal' && (
-                    <PersonalInfoForm data={resumeData.personal_info} onChange={(data)=>setResumeData(prev => ({...prev , personal_info: data}))} removeBackground = {removeBackground} setRemoveBackground={setRemoveBackground} />
+                    <PersonalInfoForm data={resumeData.personal_info} onChange={(data)=>setResumeData(prev => ({...prev , personal_info: data}))} 
+                    removeBackground = {removeBackground} setRemoveBackground={setRemoveBackground} />
+                  )}
+                  {/* Add other sections here similarly */}
+                  {activeSection.id === 'summary' && ( 
+                    <ProfessionalSummaryForm data = {resumeData.professional_summary} onChange={(data) => setResumeData(prev => ({...prev, professional_summary: data}))}
+                    setResumeData= {setResumeData} />
+                  )}
+                  {/* ExperienceForm to be added here */}
+                  {activeSection.id === 'experience' && (
+                    <ExperienceForm data={resumeData.experience} onChange={(data) => setResumeData(prev => ({...prev, experience: data}))} />
+                  )}
+                  {/* EducationForm to be added here */}
+                  {activeSection.id === 'education' && (
+                    <EducationForm data={resumeData.education} onChange={(data) => setResumeData(prev => ({...prev, education: data}))} />
+                  )}
+                  {/* ProjectsForm to be added here */}
+                  {activeSection.id === 'projects' && (
+                    <ProjectForm data={resumeData.projects} onChange={(data) => setResumeData(prev => ({...prev, projects: data}))} />
+                  )}
+                  {/* SkillsForm to be added here */}
+                  {activeSection.id === 'skills' && (
+                    <SkillForm data={resumeData.skills} onChange={(data) => setResumeData(prev => ({...prev, skills: data}))} />
                   )}
 
+
                 </div>
+
+                <button className='bg-gradient-to-br from-green-100 to-green-200 ring:green-300 text-green-600 ring hover:ring-green-400
+                 transition-all rounded-md px-6 py-2 mt-6 text-sm'>Save Changes</button>
               </div>
 
             </div>
@@ -109,8 +143,11 @@ const ResumeBuilder = () => {
             {/* Right Panel */}
             <div className='lg:col-span-7 max-lg:mt-6'>
 
-              <div>
-                {/* -- buttons -- */}
+              {/* -- buttons -- */}
+              <div className='relative w-full'>
+                
+                
+                
               </div> 
 
               <ResumePreview data={resumeData} template={resumeData.template} accentColor={resumeData.accent_color} />
